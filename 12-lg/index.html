@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="reset.css">
     <style>
         body {background:#000;}
-        body * {border:1px solid aqua;}
+        body * 
         header {
             padding:20px 0; width:1400px; margin:0 auto;
             display:flex; justify-content:space-between; align-items:center;
@@ -27,21 +27,25 @@
         }
         main .video_bg {
             width:790px; height:640px; position:relative;
-            overflow:hidden; 
+            overflow:hidden; z-index: 20;
         }
         main .video_bg video {
             position:absolute;
-            left:-100px; top:-200px; z-index:10;
+            left:-100px; top:-200px; z-index:20;
         }
         main .video_bg img {
             position:absolute; 
-            left:0; top:0; z-index:20;
+            left:0; top:0; z-index:40;
             width:100%;
         }
         main .txt_bg_ani {
-            background:url(images/bg_flow.png) repeat-x left top;
-            height:150px; width:100%;
+            background:url(images/bg_flow.png) repeat-x left center;
+            height:640px; width:100%; animation: rightMove 20s linear infinite;
             position:absolute; z-index:30;
+        }
+        @keyframes rightMove {
+            0% {background-position-x: 0px;}
+            100% {background-position-x: 3000px;}
         }
     </style>
 </head>
@@ -55,8 +59,8 @@
             <div class="video_bg">
                 <video src="video/golden.mp4" autoplay muted loop></video>
                 <img src="images/img_intro.png" alt="">
+                <div class="txt_bg_ani"></div>
             </div>
-            <div class="txt_bg_ani"></div>
         </div>
     </main>
 </body>
